@@ -1,0 +1,5 @@
+CHANGE_SOURCE=external-fork-account-B
+INITIAL_BASE=weak
+INTENDED_RETARGET_BASE=strong
+TEST_PURPOSE=real-tide-protected-base-retarget
+NO_PRODUCTION_TARGETS=true
