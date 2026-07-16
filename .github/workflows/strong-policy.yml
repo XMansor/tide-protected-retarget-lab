@@ -1,0 +1,41 @@
+name: strong-policy
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - strong
+
+permissions:
+  contents: read
+
+jobs:
+  lab-lint:
+    name: lab-lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Controlled lint policy
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "Bootstrap success for required-check registration."
+            exit 0
+          fi
+
+          echo "Intentional failure for the controlled retarget laboratory."
+          exit 1
+
+  lab-unit:
+    name: lab-unit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Controlled unit policy
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "Bootstrap success for required-check registration."
+            exit 0
+          fi
+
+          echo "Intentional failure for the controlled retarget laboratory."
+          exit 1
